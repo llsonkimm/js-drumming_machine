@@ -5,8 +5,9 @@ const audioElements = document.querySelectorAll("audio");
 const audio = new Audio();
 
 const playSound = (sound) => {
+    audio.currentTime = 0;
     audio.src = sound;
-    audio?.play();
+    audio.play().catch(error => console.log(error));
 }
 
 const playKey = (key) => {
@@ -26,9 +27,9 @@ window.addEventListener("keydown", (event) => {
   const audio = document.getElementById(key);
   
   if(audio) {
-    audio?.play();
     audio.currentTime = 0;
-    display.textContent = audio.src.split("/")[5].replace(".mp3", "").split("_").join(" ")
+    audio.play().catch(error => console.log(error));
+    display.textContent = audio.innerText
     playKey(key)
   }
   })
@@ -37,7 +38,6 @@ window.addEventListener("keydown", (event) => {
 buttons.forEach(button => button.addEventListener("click", () => {
   const audioFile = button.firstElementChild;
   const audioSrc = audioFile.src;
-  const audioTitle = audioSrc.split("/")[5].replace(".mp3", "").split("_").join(" ")
-  display.textContent = audioTitle;
+  display.textContent = audioFile.innerText;
   playSound(audioSrc)
 }))
