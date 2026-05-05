@@ -1,0 +1,76 @@
+:root {
+    /* colors */
+    --primary-color: #dfdfe2;
+    --secondary-color: #ffffff;
+    --app-background-color: #4d4d62;
+    --background-color: #1b1b32;
+    --foreground-color: #3b3b4f;
+    --highlight-color: #f1be32;
+
+    /* font sizes */
+    --root-font-size: 16px;
+    font-size: var(--root-font-size);
+
+    /* font-families */
+    --font-headline: "Roboto Mono", monospace;
+    --font-family: "Lato", sans-serif;
+  }
+
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: var(--app-background-color);
+    color: var(--primary-color);
+    font-family: var(--font-family);
+  }
+
+#drum-machine{
+    max-width: 300px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+#display{
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+#grid{
+    display: grid;
+    width: 100%;
+    max-width: 300px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    background-color: var(--foreground-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 15px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 80px;
+}
+
+button:active, button.active{
+    background-color: var(--highlight-color);
+    color: var(--background-color);
+}
